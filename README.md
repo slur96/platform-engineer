@@ -21,4 +21,4 @@ As part of this task you will need to:
 
 1. Fork this repository.
 1. Complete the task and commit it to your fork.
-1. Send us a link to your fork. If you would like to keep it private, please add `@MattiasAng` and `@zoni` as collaborators.
+1. Send us a link to your fork. If you would like to keep it private, please add `@MattiasAng`, `@zoni` and `@ja-sg` as collaborators.
