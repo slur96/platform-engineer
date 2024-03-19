@@ -48,7 +48,7 @@
      `git push -u origin main`
 
 
-  5.  The configuration for the Continuous Integration (CI) pipeline is located in  the `.github/workflows/ci.yml` file, and it makes use of GitHub Actions. 
+  5.  The configuration for the Continuous Integration (CI) pipeline is located in  the `.github/workflows/ci.yaml` file, and it makes use of GitHub Actions. 
 
       The work of creating the container image for the Linux/amd64 and Linux/arm64 platforms is handled by this pipeline. Following the build, these images are pushed to the Docker Container Registry.
 
