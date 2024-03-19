@@ -50,6 +50,6 @@
 
   5.  The configuration for the Continuous Integration (CI) pipeline is located in  the `.github/workflows/ci.yml` file, and it makes use of GitHub Actions. 
 
-      This pipeline takes on the task of building the container image for both `linux/amd64` and `linux/arm64` platforms. After the build, it then proceeds to push these images to the Docker Container Registry.
+      The work of creating the container image for the Linux/amd64 and Linux/arm64 platforms is handled by this pipeline. Following the build, these images are pushed to the Docker Container Registry.
 
       We may either make changes to the `main` branch or build a new release to start the continuous integration workflow.
