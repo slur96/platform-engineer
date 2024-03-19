@@ -1,24 +1,55 @@
 # Platform Engineer Technical Test
 
-Welcome to Castor Platform Engineer technical test. 
-This test is designed to assess your technical skills and knowledge with containerization.
+## Goal of Project:
 
-## Assignment
+*Build our container Image*
 
-Your task is to build a container image that runs the Go web application in this repository.
+*Containerize our Go Application*
 
-As part of this task you will need to:
+*Run our Go Application*
 
-- Build a container image that runs the Go web application.
-  - Allow the environment variable `PORT` to be configurable, but with a default value.
-  - No constraints on the base image or the container runtime.
-- Provide instructions on how to build and run the container image in a README file.
-- Create a CI pipeline that builds the container image and pushes it to a registry.
-  - The container must be able to run on Linux x86_64 and ARM processors both.
-  - You can use any CI tool you like, but the pipeline needs to be defined in code.
+*Test Our Go App Locally*
 
-## Submission
+*Push our Code to Github*
 
-1. Fork this repository.
-1. Complete the task and commit it to your fork.
-1. Send us a link to your fork. If you would like to keep it private, please add `@MattiasAng`, `@zoni` and `@ja-sg` as collaborators.
+*Create a CI pipeline that builds the container image and pushes it to a registry*
+
+---
+
+1. First step is to build and run image locally with our default port defined in our Dockerfile 8080.
+
+    `docker build -t go-app .`
+
+    Alternatively we can build with custom ports.
+
+    `docker build --build-arg PORT=<your-preferred-port> -t go-app .`
+
+  2. Run our Go container with our default port specified 8080 and a name  for our container.
+
+      `docker run -d --name my-app -p 8080:8080  -it go-app`
+
+      This will start the container and map the host's port 8080 to the container's port 8080.
+      
+      You can also designate a custom port by utilizing the PORT environment variable.
+
+      `docker run -d --name my-app -e PORT=8000 -p 8080:8080 go-app`
+    
+
+  3. It's a best practice to perform local testing on our Go application using the designated ports prior to committing it to our repository.
+
+     ![alt text](images/Test.png)
+
+  4. We are in the process of pushing our Dockerfile along with any modifications to GitHub.
+
+     `git add .`
+
+     `git commit -m "added new files"`
+
+     `git push -u origin main`
+
+
+  5.  The configuration for the Continuous Integration (CI) pipeline is located in  the `.github/workflows/ci.yml` file, and it makes use of GitHub Actions. 
+
+      This pipeline takes on the task of building the container image for both `linux/amd64` and `linux/arm64` platforms. After the build, it then proceeds to push these images to the Docker Container Registry.
+
+      We may either make changes to the `main` branch or build a new release to start the continuous integration workflow.
